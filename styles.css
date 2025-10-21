@@ -1,0 +1,140 @@
+/* ===== Токени ===== */
+:root{
+  --font-size:100%;
+  --line:1.6;
+  --bg:#ffffff;
+  --fg:#111111;
+  --muted:#6b7280;
+  --accent:#c62828;
+  --card:#fafafa;
+  --border:#e5e7eb;
+}
+
+/* Теми */
+.theme-dark{
+  --bg:#0f1720;
+  --fg:#e6eef5;
+  --muted:#94a3b8;
+  --accent:#7aa2ff;
+  --card:#0b141b;
+  --border:#2a3b47;
+}
+.theme-high-contrast{
+  --bg:#000;
+  --fg:#fff;
+  --muted:#fff;
+  --accent:#ff0;
+  --card:#000;
+  --border:#fff;
+}
+
+/* ===== База ===== */
+html{font-size:var(--font-size);}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial;line-height:var(--line);}
+img{max-width:100%;display:block;}
+.container{max-width:1100px;margin:0 auto;padding:0 24px;}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(1px,1px,1px,1px);}
+
+/* Видимий фокус по замовчуванню */
+:where(a,button,input,select,textarea,[role="button"]):focus-visible{
+  outline:2px solid var(--accent);
+  outline-offset:3px;
+  border-radius:6px;
+}
+
+/* High Contrast: ще сильніший фокус і підкреслення посилань */
+.theme-high-contrast :where(a,button,input,select,textarea,[role="button"]):focus-visible{
+  outline:3px solid #fff;
+  outline-offset:4px;
+}
+.theme-high-contrast a{ text-decoration: underline; text-underline-offset: 2px; }
+
+/* Skip link */
+.skip-link{position:absolute;left:-9999px;top:-9999px;background:#000;color:#fff;padding:8px;border-radius:6px}
+.skip-link:focus{left:16px;top:16px;z-index:999}
+
+/* ===== Header ===== */
+.site-header{position:sticky;top:0;background:var(--bg);border-bottom:1px solid var(--border);z-index:20}
+.header-inner{display:flex;align-items:center;gap:16px;min-height:64px}
+.logo{font-weight:800;font-size:20px}
+
+/* Десктоп-меню */
+.main-nav{display:flex;gap:18px;flex:1}
+.main-nav a{color:var(--fg);text-decoration:none;font-weight:600;opacity:.9}
+.main-nav a:hover{text-decoration:underline}
+.main-nav a.active{ text-decoration: underline; text-underline-offset: 4px; }
+
+/* Бургер */
+.burger{display:none;position:relative;width:44px;height:36px;background:transparent;border:1px solid var(--border);border-radius:8px}
+.burger span{position:absolute;left:8px;right:8px;height:2px;background:var(--fg);transition:transform .2s; }
+.burger span:nth-child(1){top:10px}
+.burger span:nth-child(2){top:17px}
+.burger span:nth-child(3){top:24px}
+.burger[aria-expanded="true"] span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.burger[aria-expanded="true"] span:nth-child(2){opacity:0}
+.burger[aria-expanded="true"] span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+/* Мобільне меню */
+.mobile-menu{display:none;border-top:1px solid var(--border);background:var(--card)}
+.mobile-menu a{display:block;padding:12px 24px;color:var(--fg);text-decoration:none;border-bottom:1px solid var(--border);font-weight:600}
+.mobile-menu a.active{background:rgba(0,0,0,.05)}
+.mobile-menu[hidden]{display:none}
+
+/* ===== Hero ===== */
+.hero{padding:24px 0}
+.hero-card{display:grid;gap:12px}
+.hero-card img{
+  width:100%;
+  aspect-ratio:16/9;
+  object-fit:cover;
+  border-radius:12px;
+  max-height:520px;
+}
+.hero-card h1{font-size:2.25rem;margin:6px 0}
+.meta{color:var(--muted);font-size:.95rem}
+
+/* ===== Cards ===== */
+.news-list{display:grid;gap:20px;padding:28px 0;grid-template-columns:repeat(3,1fr)}
+.card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:12px;display:grid;gap:10px}
+.card img{border-radius:8px;aspect-ratio:16/9;object-fit:cover}
+.card h3{margin:2px 0 0;font-size:1.05rem}
+
+/* ===== Footer ===== */
+.site-footer{border-top:1px solid var(--border);margin-top:24px;padding:16px 0;color:var(--muted)}
+
+/* ===== Панель доступності ===== */
+.backdrop{position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:80}
+.a11y-panel{position:fixed;right:0;top:0;height:100vh;width:340px;background:var(--card);border-left:1px solid var(--border);padding:16px;z-index:100;display:flex;flex-direction:column;gap:14px}
+.a11y-panel[hidden], .backdrop[hidden]{display:none}
+.panel-head{display:flex;align-items:center;justify-content:space-between}
+.icon-btn{background:transparent;border:1px solid var(--border);border-radius:8px;padding:6px 10px;color:var(--fg);cursor:pointer}
+.field{display:grid;gap:6px}
+.field.checkbox{display:flex;align-items:center;gap:10px}
+.panel-actions{margin-top:auto;display:flex;gap:10px}
+.btn-primary{background:var(--accent);color:#fff;border:0;padding:10px 14px;border-radius:10px;cursor:pointer}
+.btn-secondary{background:transparent;color:var(--fg);border:1px solid var(--border);padding:10px 14px;border-radius:10px;cursor:pointer}
+
+/* Кнопка ♿ (плаваюча) */
+.a11y-btn{position:fixed;right:18px;bottom:18px;width:56px;height:56px;border-radius:50%;border:1px solid var(--border);background:var(--card);color:var(--fg);font-size:22px;display:flex;align-items:center;justify-content:center;z-index:60;cursor:pointer}
+
+/* Кнопка "наверх" */
+.back-to-top{
+  position:fixed;right:18px;bottom:86px; /* трохи вище за ♿ */
+  width:44px;height:44px;border-radius:50%;
+  border:1px solid var(--border);background:var(--card);color:var(--fg);
+  display:flex;align-items:center;justify-content:center;
+  cursor:pointer;z-index:60;
+}
+.back-to-top[hidden]{display:none}
+
+/* ===== Респонсив ===== */
+@media (max-width:900px){ .news-list{grid-template-columns:repeat(2,1fr)} }
+@media (max-width:700px){
+  .main-nav{display:none}      /* ховаємо десктоп-меню */
+  .burger{display:inline-flex}  /* показуємо бургер */
+  .mobile-menu{display:block}
+}
+@media (max-width:600px){ .news-list{grid-template-columns:1fr} }
+
+/* Зменшення анімацій */
+.reduce-motion *, .reduce-motion *::before, .reduce-motion *::after{animation:none!important;transition:none!important}
