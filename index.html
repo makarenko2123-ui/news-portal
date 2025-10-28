@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!doctype html>
 <html lang="uk">
 <head>
@@ -117,3 +118,170 @@
   <script src="a11y.js" defer></script>
 </body>
 </html>
+=======
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>NewsPortal — Актуальні новини</title>
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css"/>
+  <meta name="description" content="Демонстраційний новинний портал з панеллю керування доступністю: шрифт, міжрядковість, теми, довжина рядка, фокус тощо.">
+</head>
+<body class="theme-default">
+  <a class="skip-link" href="#main">Перейти до контенту</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="logo" aria-label="Логотип сайту">NewsPortal</div>
+
+      <button id="menu-toggle" class="burger" aria-label="Меню" aria-controls="mobile-menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="main-nav" aria-label="Розділи сайту" id="nav-filters">
+        <a href="#" data-filter="all" class="active">Всі</a>
+        <a href="#" data-filter="politics">Політика</a>
+        <a href="#" data-filter="tech">Технології</a>
+        <a href="#" data-filter="sport">Спорт</a>
+        <a href="#" data-filter="world">Світ</a>
+        <a href="#" data-filter="culture">Культура</a>
+      </nav>
+
+      <!-- Плаваюча “крута” кнопка ♿  -->
+      <button id="a11y-toggle" class="a11y-fab" aria-haspopup="dialog" aria-controls="a11y-panel" aria-expanded="false">
+        <span aria-hidden="true">♿</span>
+        <span class="fab-tooltip" role="tooltip" id="a11y-tip">Налаштування доступності</span>
+      </button>
+    </div>
+
+    <nav id="mobile-menu" class="mobile-menu" hidden>
+      <a href="#" data-filter="all" class="active">Всі</a>
+      <a href="#" data-filter="politics">Політика</a>
+      <a href="#" data-filter="tech">Технології</a>
+      <a href="#" data-filter="sport">Спорт</a>
+      <a href="#" data-filter="world">Світ</a>
+      <a href="#" data-filter="culture">Культура</a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero container">
+      <article class="hero-card">
+        <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=1600&auto=format&fit=crop"
+             alt="Міський квартал на світанку — заголовна новина дня">
+        <h1 class="measure">Український ринок IT зростає: аналітики фіксують збільшення експорту та інвестицій</h1>
+        <p class="meta measure">21 жовтня 2025 • Редакція</p>
+      </article>
+    </section>
+
+    <section class="news-list container" id="cards" aria-label="Стрічка новин">
+      <article class="card" data-category="tech">
+        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1200&auto=format&fit=crop" alt="Мікросхеми на друкованій платі">
+        <h3>ШІ-помічники в освіті: пілотні проєкти у вишах</h3>
+        <p>МОН тестує чат-асистентів для підтримки студентів і викладачів. Перші результати — цього семестру.</p>
+      </article>
+
+      <article class="card" data-category="world">
+        <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=1200&auto=format&fit=crop" alt="Гірський ландшафт під зоряним небом">
+        <h3>Кліматичний саміт: узгоджено цілі до 2030 року</h3>
+        <p>Країни інвестують у зелену енергетику та програми скорочення викидів.</p>
+      </article>
+
+      <article class="card" data-category="sport">
+        <img src="https://images.unsplash.com/photo-1507413245164-6160d8298b31?q=80&w=1200&auto=format&fit=crop" alt="Футбольний стадіон та м’яч на полі">
+        <h3>Національна збірна перемогла у відборі</h3>
+        <p>Команда здобула три очки та очолила групу.</p>
+      </article>
+
+      <article class="card" data-category="politics">
+        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1200&auto=format&fit=crop" alt="Будівля уряду з прапором">
+        <h3>Затверджено програму цифровізації послуг</h3>
+        <p>Е-документи, онлайн-реєстрації та інтеграції з міжнародними сервісами — у пріоритеті.</p>
+      </article>
+
+      <article class="card" data-category="culture">
+        <img src="https://images.unsplash.com/photo-1481437642641-2f0ae875f836?q=80&w=1200&auto=format&fit=crop" alt="Сцена театру з освітленням">
+        <h3>Прем’єра у Національному театрі</h3>
+        <p>Сучасна інтерпретація класики збирає аншлаги.</p>
+      </article>
+
+      <article class="card" data-category="tech">
+        <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=1200&auto=format&fit=crop" alt="Ряди серверів у дата-центрі">
+        <h3>Хмарні сервіси: тренди 2025</h3>
+        <p>Бізнес переходить на мульти-хмарні стратегії та інвестує у безпеку.</p>
+      </article>
+    </section>
+  </main>
+
+  <!-- Панель доступності -->
+  <aside id="a11y-panel" class="a11y-panel" role="dialog" aria-label="Налаштування доступності" aria-modal="true" hidden>
+    <div class="panel-head">
+      <h2 tabindex="-1">Налаштування доступності</h2>
+      <button id="close" class="icon-btn" aria-label="Закрити">✕</button>
+    </div>
+
+    <!-- СКРОЛЬОВАНИЙ ВМІСТ -->
+    <div class="panel-body">
+      <fieldset class="field">
+        <legend>Шрифт</legend>
+        <label><input type="radio" name="fontfam" value="system" checked> Системний</label>
+        <label><input type="radio" name="fontfam" value="hyperlegible"> Atkinson Hyperlegible</label>
+      </fieldset>
+
+      <label class="field">
+        <span>Розмір шрифту</span>
+        <input id="font-scale" type="range" min="90" max="140" step="5" value="100">
+      </label>
+
+      <label class="field">
+        <span>Міжрядковий інтервал</span>
+        <input id="line-height" type="range" min="1.2" max="2.0" step="0.1" value="1.6">
+      </label>
+
+      <label class="field">
+        <span>Максимальна довжина рядка (символів)</span>
+        <input id="measure" type="range" min="50" max="90" step="2" value="68">
+      </label>
+
+      <label class="field">
+        <span>Інтервал між літерами</span>
+        <input id="letterspace" type="range" min="0" max="0.12" step="0.01" value="0">
+      </label>
+
+      <fieldset class="field">
+        <legend>Тема</legend>
+        <label><input type="radio" name="theme" value="default" checked> Стандартна</label>
+        <label><input type="radio" name="theme" value="dark"> Темна</label>
+        <label><input type="radio" name="theme" value="high-contrast"> Високий контраст</label>
+        <label><input type="radio" name="theme" value="cb-safe"> Для дальтоніків</label>
+        <label><input type="radio" name="theme" value="sepia"> Тепла (сепія)</label>
+      </fieldset>
+
+      <label class="field checkbox"><input id="underline-links" type="checkbox"> Підкреслювати всі посилання</label>
+      <label class="field checkbox"><input id="thick-focus" type="checkbox"> Товстий фокус</label>
+      <label class="field checkbox"><input id="reduce-motion" type="checkbox"> Зменшити анімації</label>
+
+      <div aria-live="polite" class="sr-only" id="a11y-live"></div>
+    </div>
+
+    <!-- ЛИПКА ПАНЕЛЬ ДІЙ ЗНИЗУ -->
+    <div class="panel-actions">
+      <button id="reset" class="btn-secondary">Скинути</button>
+      <button id="close2" class="btn-primary">Закрити</button>
+    </div>
+  </aside>
+  <div id="backdrop" class="backdrop" hidden></div>
+
+  <!-- Кнопка "наверх" -->
+  <button id="back-to-top" class="back-to-top" aria-label="Повернутись нагору" hidden>▲</button>
+
+  <footer class="site-footer">
+    <div class="container">© 2025 NewsPortal</div>
+  </footer>
+
+  <script src="a11y.js" defer></script>
+</body>
+</html>
+>>>>>>> 26cc497 (A11y panel + FAB + layout fixes)
