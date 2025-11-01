@@ -6,9 +6,10 @@
   <title>NewsPortal — Актуальні новини</title>
   <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css"/>
-  <meta name="description" content="Демонстраційний новинний портал з панеллю керування доступністю: шрифт, міжрядковість, теми, довжина рядка, фокус тощо.">
+  <meta name="description" content="Демонстраційний новинний портал з розширеною панеллю доступності: теми, шрифти, межа рядка, інтервали, озвучка новин.">
 </head>
 <body class="theme-default">
+  <!-- Skip-link лишив для клавіатури: його не видно, поки не натиснути Tab -->
   <a class="skip-link" href="#main">Перейти до контенту</a>
 
   <header class="site-header">
@@ -28,7 +29,7 @@
         <a href="#" data-filter="culture">Культура</a>
       </nav>
 
-      <!-- Плаваюча “крута” кнопка ♿  -->
+      <!-- Плаваюча кнопка доступності -->
       <button id="a11y-toggle" class="a11y-fab" aria-haspopup="dialog" aria-controls="a11y-panel" aria-expanded="false">
         <span aria-hidden="true">♿</span>
         <span class="fab-tooltip" role="tooltip" id="a11y-tip">Налаштування доступності</span>
@@ -45,51 +46,101 @@
     </nav>
   </header>
 
+  <!-- 🔴 Breaking news ticker -->
+  <div class="ticker" aria-label="Термінові новини">
+    <div class="ticker-track" id="ticker-track">
+      <span>Терміново: ухвалено закон щодо цифрової ідентифікації •</span>
+      <span>Ринок ІТ зростає на 12% — звіт за квартал •</span>
+      <span>Кліматичний саміт погодив спільні цілі до 2030 •</span>
+      <span>Нацзбірна здобула перемогу у відборі •</span>
+      <span>У театрі — прем’єра сучасної інтерпретації класики •</span>
+    </div>
+  </div>
+
   <main id="main">
-    <section class="hero container">
+    <!-- HERO -->
+    <section class="hero container" id="hero">
       <article class="hero-card">
         <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=1600&auto=format&fit=crop"
              alt="Міський квартал на світанку — заголовна новина дня">
         <h1 class="measure">Український ринок IT зростає: аналітики фіксують збільшення експорту та інвестицій</h1>
         <p class="meta measure">21 жовтня 2025 • Редакція</p>
+        <button id="hero-tts" class="tts-btn" type="button" aria-label="Прослухати головну новину">🔊</button>
       </article>
     </section>
 
+    <!-- 12 КАРТОК НОВИН -->
     <section class="news-list container" id="cards" aria-label="Стрічка новин">
       <article class="card" data-category="tech">
         <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1200&auto=format&fit=crop" alt="Мікросхеми на друкованій платі">
         <h3>ШІ-помічники в освіті: пілотні проєкти у вишах</h3>
-        <p>МОН тестує чат-асистентів для підтримки студентів і викладачів. Перші результати — цього семестру.</p>
+        <p class="measure">МОН тестує чат-асистентів для підтримки студентів і викладачів. Перші результати — цього семестру.</p>
       </article>
 
       <article class="card" data-category="world">
         <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=1200&auto=format&fit=crop" alt="Гірський ландшафт під зоряним небом">
         <h3>Кліматичний саміт: узгоджено цілі до 2030 року</h3>
-        <p>Країни інвестують у зелену енергетику та програми скорочення викидів.</p>
+        <p class="measure">Країни інвестують у зелену енергетику та програми скорочення викидів.</p>
       </article>
 
       <article class="card" data-category="sport">
         <img src="https://images.unsplash.com/photo-1507413245164-6160d8298b31?q=80&w=1200&auto=format&fit=crop" alt="Футбольний стадіон та м’яч на полі">
         <h3>Національна збірна перемогла у відборі</h3>
-        <p>Команда здобула три очки та очолила групу.</p>
+        <p class="measure">Команда здобула три очки та очолила групу.</p>
       </article>
 
       <article class="card" data-category="politics">
         <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1200&auto=format&fit=crop" alt="Будівля уряду з прапором">
         <h3>Затверджено програму цифровізації послуг</h3>
-        <p>Е-документи, онлайн-реєстрації та інтеграції з міжнародними сервісами — у пріоритеті.</p>
+        <p class="measure">Е-документи, онлайн-реєстрації та інтеграції з міжнародними сервісами — у пріоритеті.</p>
       </article>
 
       <article class="card" data-category="culture">
         <img src="https://images.unsplash.com/photo-1481437642641-2f0ae875f836?q=80&w=1200&auto=format&fit=crop" alt="Сцена театру з освітленням">
         <h3>Прем’єра у Національному театрі</h3>
-        <p>Сучасна інтерпретація класики збирає аншлаги.</p>
+        <p class="measure">Сучасна інтерпретація класики збирає аншлаги.</p>
       </article>
 
       <article class="card" data-category="tech">
         <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=1200&auto=format&fit=crop" alt="Ряди серверів у дата-центрі">
         <h3>Хмарні сервіси: тренди 2025</h3>
-        <p>Бізнес переходить на мульти-хмарні стратегії та інвестує у безпеку.</p>
+        <p class="measure">Бізнес переходить на мульти-хмарні стратегії та інвестує у безпеку.</p>
+      </article>
+
+      <article class="card" data-category="world">
+        <img src="https://images.unsplash.com/photo-1472214103451-9374bd1c798e?q=80&w=1200&auto=format&fit=crop" alt="Планета Земля на фоні зоряного неба">
+        <h3>Супутниковий інтернет розширює покриття</h3>
+        <p class="measure">Нові угруповання супутників забезпечують зв’язок у віддалених регіонах.</p>
+      </article>
+
+      <article class="card" data-category="sport">
+        <img src="https://images.unsplash.com/photo-1517649763962-0c623066013b?q=80&w=1200&auto=format&fit=crop" alt="Баскетбольний м’яч і щит">
+        <h3>Клуб оголосив про трансфер лідера команди</h3>
+        <p class="measure">Контракт розраховано на два сезони з опцією продовження.</p>
+      </article>
+
+      <article class="card" data-category="politics">
+        <img src="https://images.unsplash.com/photo-1541873676-a18131494184?q=80&w=1200&auto=format&fit=crop" alt="Парламентська зала">
+        <h3>Бюджет на наступний рік подано до парламенту</h3>
+        <p class="measure">Пріоритет — оборона, освіта, цифрові реформи.</p>
+      </article>
+
+      <article class="card" data-category="culture">
+        <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=1200&auto=format&fit=crop" alt="Виставкова зала музею">
+        <h3>Виставка сучасного мистецтва відкрилась</h3>
+        <p class="measure">До експозиції увійшли інсталяції митців з 12 країн.</p>
+      </article>
+
+      <article class="card" data-category="tech">
+        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200&auto=format&fit=crop" alt="Робоче місце розробника з ноутбуком">
+        <h3>Open-source: новий фреймворк для веб-додатків</h3>
+        <p class="measure">Обіцяють меншу складність і вищу продуктивність.</p>
+      </article>
+
+      <article class="card" data-category="world">
+        <img src="https://images.unsplash.com/photo-1491553895911-0055eca6402d?q=80&w=1200&auto=format&fit=crop" alt="Хмарочоси мегаполіса">
+        <h3>Інвестори повертаються до ринків, що розвиваються</h3>
+        <p class="measure">Аналітики бачать потенціал зростання у 2026 році.</p>
       </article>
     </section>
   </main>
@@ -101,7 +152,6 @@
       <button id="close" class="icon-btn" aria-label="Закрити">✕</button>
     </div>
 
-    <!-- СКРОЛЬОВАНИЙ ВМІСТ -->
     <div class="panel-body">
       <fieldset class="field">
         <legend>Шрифт</legend>
@@ -124,6 +174,11 @@
         <input id="measure" type="range" min="50" max="90" step="2" value="68">
       </label>
 
+      <label class="field checkbox">
+        <input id="measure-global" type="checkbox" checked>
+        Обмежувати довжину рядка на всьому сайті
+      </label>
+
       <label class="field">
         <span>Інтервал між літерами</span>
         <input id="letterspace" type="range" min="0" max="0.12" step="0.01" value="0">
@@ -140,12 +195,19 @@
 
       <label class="field checkbox"><input id="underline-links" type="checkbox"> Підкреслювати всі посилання</label>
       <label class="field checkbox"><input id="thick-focus" type="checkbox"> Товстий фокус</label>
+      <label class="field checkbox"><input id="focus-always" type="checkbox"> Показувати фокус і при кліку</label>
       <label class="field checkbox"><input id="reduce-motion" type="checkbox"> Зменшити анімації</label>
+
+      <fieldset class="field">
+        <legend>Озвучка (TTS)</legend>
+        <label>Голос <select id="tts-voice"></select></label>
+        <label>Швидкість <input id="tts-rate" type="range" min="0.7" max="1.4" step="0.05" value="1"></label>
+        <button id="tts-sample" class="btn-secondary" type="button">▶︎ Прослухати приклад</button>
+      </fieldset>
 
       <div aria-live="polite" class="sr-only" id="a11y-live"></div>
     </div>
 
-    <!-- ЛИПКА ПАНЕЛЬ ДІЙ ЗНИЗУ -->
     <div class="panel-actions">
       <button id="reset" class="btn-secondary">Скинути</button>
       <button id="close2" class="btn-primary">Закрити</button>
@@ -153,7 +215,6 @@
   </aside>
   <div id="backdrop" class="backdrop" hidden></div>
 
-  <!-- Кнопка "наверх" -->
   <button id="back-to-top" class="back-to-top" aria-label="Повернутись нагору" hidden>▲</button>
 
   <footer class="site-footer">
